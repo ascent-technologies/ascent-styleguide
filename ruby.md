@@ -11,7 +11,7 @@
 *   [Percent Literals](#percent-literals)
 *   [Hashes](#hashes)
 *   [Keyword Arguments](#keyword-arguments)
-      
+
 Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https://github.com/bbatsov/ruby-style-guide).
 
 ## Coding Style
@@ -92,7 +92,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     else
       "Jazz"
     end
-        
+
     # okay
     kind = case year
       when 1850..1889
@@ -129,36 +129,36 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     def some_method
       result = if true
         do_something
-    
+
       elsif false
         do_something_else
-    
+
       else
         just_do_this
       end
     end
     ```
-    
+
 *   When continuing a chained method invocation on another line, include the . on the first line to indicate that the expression continues.
 
     ```ruby
     # bad - need to read ahead to the second line to know that the chain continues
     one.two.three
       .four
-    
+
     # good - it's immediately clear that the expression continues beyond the first line
     one.two.three.
       four
     ```
-    
+
 *   _Do not_ align the parameters of a method call if they span more than one line.
-    
+
     ```ruby
     # starting point (line is too long)
     def send_mail(source)
       Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
     end
-    
+
     # bad (double indent)
     def send_mail(source)
       Mailer.deliver(
@@ -167,7 +167,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
           subject: 'Important message',
           body: source.text)
     end
-    
+
     # bad (parameters aligned; frustrating to maintain)
     def send_mail(source)
       Mailer.deliver(to: 'bob@example.com',
@@ -175,7 +175,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
                      subject: 'Important message',
                      body: source.text)
     end
-    
+
     # good (normal indent)
     def send_mail(source)
       Mailer.deliver(
@@ -252,7 +252,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     # good
     if some_condition
       nested_condition ? nested_something : nested_something_else
-  
+
     else
       something_else
     end
@@ -285,7 +285,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
 
     # good
     do_something if some_condition
-  
+
     # another good option
     some_condition && do_something
 
@@ -294,35 +294,35 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
       do_something_fancy(with_arguments, and_everything)
     end
     ```
-    
+
 *   Favor `unless` over `if` for negative conditions (or control flow `||`).
 
     ```ruby
     # bad
     do_something if !some_condition
-    
+
     # good
     do_something unless some_condition
-    
+
     # another good option
     some_condition || do_something
     ```
-    
+
 *   Do not use `unless` with `else`. Rewrite these with the positive case first.
 
     ```ruby
     # bad
     unless success?
       puts "failure"
-  
+
     else
       puts "success"
     end
-    
+
     # good
     if success?
       puts "success"
-  
+
     else
       puts "failure"
     end
@@ -440,7 +440,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     ```
 
 *   If the first argument to a method begins with an open parenthesis, always use parentheses in the method invocation.
-    
+
     ```ruby
     # bad
     f (3 + 2) + 1
@@ -467,7 +467,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     false. Instead, use `is_a?` or `kind_of?` if you must.
 
     Refactoring is even better. It's worth looking hard at any code that explicitly checks types.
-    
+
 *   Avoid use of nested conditionals for flow of control.
 
     Prefer a guard clause when you can assert invalid data. A guard clause is a conditional statement at the top of a
@@ -478,28 +478,28 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     def compute_thing(thing)
       if thing[:foo]
         update_with_bar(thing[:foo])
-    
+
         if thing[:foo][:bar]
           partial_compute(thing)
-      
+
         else
           re_compute(thing)
         end
       end
     end
-    
+
     # good
     def compute_thing(thing)
       return unless thing[:foo]
       update_with_bar(thing[:foo])
-  
+
       return re_compute(thing) unless thing[:foo][:bar]
       partial_compute(thing)
     end
     ```
 
     Prefer next in loops instead of conditional blocks.
-    
+
     ```ruby
     # bad
     [ 0, 1, 2, 3 ].each do |item|
@@ -507,11 +507,11 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
         puts item
       end
     end
-    
+
     # good
     [ 0, 1, 2, 3 ].each do |item|
       next unless item > 1
-  
+
       puts item
     end
     ```
@@ -713,13 +713,13 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     # good
     STATES = %w[ draft open closed ]
     ```
-    
+
 *   Prefer `%i` to the literal array syntax when you need an array of symbols.
 
     ```ruby
     # bad
     STATES = [ :draft, :open, :closed ]
-    
+
     # good
     STATES = %i[ draft open closed ]
     ```
@@ -748,13 +748,13 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     # good
     email_with_name = "#{ user.name } <#{ user.email }>"
     ```
-    
+
 *   With interpolated expressions, there should be padded-spacing inside the braces.
 
     ```ruby
     # bad
     "From: #{user.first_name}, #{user.last_name}"
-    
+
     # good
     "From: #{ user.first_name }, #{ user.last_name }"
     ```
@@ -833,7 +833,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     ```ruby
     STATES = %w[ draft open closed ]
     ```
-    
+
 *   Use `%i` freely.
 
     ```ruby
@@ -872,16 +872,16 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
     # good
     %r(^/blog/2011/(.*)$)
     ```
-    
+
 *   Use the braces that are the most appropriate for the various kinds of percent literals.
 
     `()` for string literals (`%`, `%q`).
-    
+
     `[]` for array literals (`%w`, `%i`) as it is aligned with the standard array literals.
-    
+
     `{}` for regexp literals (`%r`) since parentheses often appear inside regular expressions. That's why a less common
     character with `{` is usually the best delimiter for `%r` literals.
-    
+
     `()` for all other literals (`%s`, `%x`)
 
 ## Hashes

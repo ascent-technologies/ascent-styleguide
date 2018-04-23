@@ -99,12 +99,12 @@ The customer app's base styles are built on [the Inspinia admin theme](http://we
 *   Prefer a `box-sizing` value of `border-box`, as opposed to CSS' default value of `content-box`.
 
     _The customer app, by default, implements `box-sizing: border-box` on all elements.
-      
+
     Using `border-box`, the width and height properties include the padding and border, but not the margin.
     Padding and border will be _inside_ of the box.
-    
+
     With `box-sizing: border-box`, the following example results in a an element with a width of 350px:
-    
+
     ```sass
     .box {
       box-sizing: border-box;
@@ -141,7 +141,7 @@ that the module have a name that is three words or longer to avoid collisions.
 *   If you must use an ID selector you should have no more than one in your rule declaration. A rule like 
     `#header #quicksearch { ... }` bumps up the specificity of the selector, making it more 
     difficult to override styles later if necessary.
-    
+
 #### The "inception" rule
 
 Avoid unnecessary nesting in SCSS. The selectors for your rulesets should not be more than four levels deep. 
@@ -222,7 +222,7 @@ The more closely related to the base selector, the closer to the top the content
 
     padding-left: 20px;
   }
-  
+
   p {
     margin: 0;
   }
@@ -317,7 +317,6 @@ to view the module's styles.
 It's easy to get carried away with SMACSS and create new modules for every element. Keep in mind, the "M" in SMACSS means
 "modular". Before defining a new module, ask yourself if there is an existing component that you can reuse or extend.  
 
-
 ## Sass sugar: use wisely
 Sass provides us with a lot of powerful tools that, when not used wisely, can cause a lot of confusion and make our CSS difficult to maintain.
 
@@ -339,7 +338,7 @@ from a `%placeholder selector` is extended to multiple selectors, those selector
 
 .error_message {
   @extend %message-box;
-  
+
   border-color: $red;
 }
 
@@ -456,7 +455,7 @@ standard colors and font sizes.
       width: $width;
     }
     ```
-    
+
 ## References
 
 *   [CSS on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)

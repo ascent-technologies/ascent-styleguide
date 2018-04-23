@@ -73,7 +73,7 @@ Our Javascript may implement all functionality up to and including features adde
     var foo = null;
     var bar = 0;
     ```
-    
+
 ### Function Expressions vs Declarations
 
 Prefer the user of function expressions over declarations.
@@ -148,10 +148,10 @@ Prefer the user of function expressions over declarations.
     // good
     if (condition) {
       doSomething();
-  
+
     } else if (anotherCondition) {
       doSomethingElse();
-  
+
     } else {
       otherwise();
     }
@@ -184,10 +184,10 @@ Prefer the user of function expressions over declarations.
 
 *   Because of the difference in naming conventions between ruby and JS, using bracket notation to access `snake_case`
     properties in JSON responses from AJAX requests is preferred.
-    
+
     _(Ideally, the JSON response is being serialized on server such that attribute names are in `camelCase`, but
     `ActiveModel::Serializers` is usually too inefficient for ad hoc endpoints due to "embedding".)_
-    
+
     _(TODO: write our own Rails object serializer)_
 
     ```javascript
@@ -226,7 +226,7 @@ Prefer the user of function expressions over declarations.
 *   `click` (and similar functions) are shorthand for `on("click", ...)`
     *   When a [shorthand function exists](http://api.jquery.com/category/events/), use that over `on`, unless you need
         to call `off`, set a namespace on the event, or listen for events on elements loaded dynamically.
-        
+
 *   Attach events using the `on` function _only_ if the element does not exist in the DOM after initial page load.
     This is useful when elements added to the page via AJAX or dynamic creation need to be observed.
 
@@ -283,13 +283,13 @@ Use these in favor of vanilla javascript where applicable.
 
     *   An acceptable use-case for a `<script>` tag in the view is to include a JSON string of serialized data for use
         on the page. This is common with React and serialized objects.
-        
+
 *   Prefer creating page-specific initialization files.
 
 *   Use the following naming convention for page initialization files:
 
     `controller_name.action_name.js`
-    
+
 *   Avoid using controller-wide initialization files. Prefer using individual files for each action as necessary.
 
 *   The `<body>` tag has `data-controller` and `data-action` attributes to help target specific pages.
@@ -299,9 +299,9 @@ Use these in favor of vanilla javascript where applicable.
     ```javascript
     (function() {
       var initialize = function(options) {};
-      
+
       var anotherFunction = function() {};
-      
+
       $(function() {
         if ($("body[data-controller=foo][data-action=bar]").length) {
           initialize();
@@ -335,7 +335,7 @@ Use these in favor of vanilla javascript where applicable.
       // private
 
       function privateFunction() {};
-  
+
       // more private function declarations
 
       return exports;
@@ -361,9 +361,9 @@ Use these in favor of vanilla javascript where applicable.
       // Set/define public attributes
       this.arg1 = arg1;
       this.arg2 = arg2;
-  
+
       // Initialize object/DOM state
-  
+
       // Private constructor function declarations
       function privateConstructorFunction() {};
     };
@@ -378,21 +378,21 @@ Use these in favor of vanilla javascript where applicable.
       this.getArg2 = function() {
         return this.arg2;
       };
-  
+
       this.setArg1 = function(newArg1) {
         this.arg1 = newArg1;
-    
+
         return this;
       };
-  
+
       this.modifyDOM = function(callback) {
         // Do something
-    
+
         callback(this);
-    
+
         return this;
       };
-  
+
       // Private instance function declarations
       function privateInstanceFunction() {};
     }).call(Ascent.MyObject.prototype);
@@ -405,7 +405,7 @@ Use these in favor of vanilla javascript where applicable.
 
     var object2 = new Ascent.MyObject("oof", "rab");
     ```
-    
+
 *   In instance functions that modify the object, it is useful to return the object itself in order to chain calls.
 
 *   In instance functions that accept callbacks, it is usually most useful to yield the object to the callback function.
@@ -421,38 +421,38 @@ Use these in favor of vanilla javascript where applicable.
           var defaults = {
             option1: "foo"
           };
-      
+
           var settings = $.extend({}, defaults, options);
-      
+
           // DO NOT define private functions within the `each` loop
           var privateFunction = function() {};
-      
+
           return this.each(function() {
             var el = $(this);
             var myObject = new Ascent.MyObject();
-    
+
             el.data("my-object", myObject);
           });
         },
-    
+
         doSomething: function() {
           // do something to each matching element, probably working on data stored on the object
           this.each(function() {  
             var el = $(this);
             var myObject = el.data("my-object");
-        
+
             // ...
           });
         }
       };
-    
+
       $.fn.myPlugin = function(methodOrOptions) {
         if (methods[methodOrOptions]) {
           return methods[methodOrOptions].apply(this, Array.prototype.slice.call(arguments, 1));
-    
+
         } else if (typeof methodOrOptions === 'object' || !methodOrOptions) {
           return methods.init.apply(this, methodOrOptions);
-    
+
         } else {
           $.error("Undefined method `"+  methodOrOptions + "` for $.selectMenu.");
         }
@@ -461,7 +461,7 @@ Use these in favor of vanilla javascript where applicable.
     ```
 
     Example usage:
-    
+
     ```javascript
     $("div").myPlugin({ option1: "bar" });
     $("div").myPlugin("doSomething");

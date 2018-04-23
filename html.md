@@ -59,7 +59,7 @@ The core goal to keep in mind when writing HTML is:
       I have read and accept the terms of service.
     </label>
     ```
-    
+
     <sup>2</sup> <small>Unless your `<label>` wraps the `<input>` element.</small>
 
 *   Radio and checkbox inputs must always be paired with a corresponding `<label>` element.
@@ -174,7 +174,7 @@ content with an element for use in javascript.
       <div class="cart_sprite"></div>
     </a>
     ```
-    
+
     <sup>3</sup> <small>This is sometimes unavoidable with javascript libraries that need to insert dynamically generated content.</small>
 
 *   [CSS pseudo class selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
