@@ -18,9 +18,9 @@ To submit an improvement:
 1.  Clone the repo.
 
     ```
-    git clone git@github.com:ascent-technologies/ascent-styleguide.git
+    git clone git@github.com:ascent-technologies/ascent-style-guide.git
     ```
-    
+
 2.  Create a new local branch, and make your suggested changes.
 
 3.  Open a new pull request.
