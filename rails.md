@@ -227,6 +227,8 @@ multiple different controllers.
 
 Services should live in `app/lib/services`.
 
+Dave Copeland has provided some [useful practices for service object design](https://multithreaded.stitchfix.com/blog/2015/06/02/anatomy-of-service-objects-in-rails/).
+
 #### Example
 
 ```ruby
