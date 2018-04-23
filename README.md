@@ -33,3 +33,4 @@ Once a consensus has been reached, the PR will be merged or closed.
 
 * [ ] python
 * [ ] react
+* [ ] commit messages
