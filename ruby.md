@@ -527,7 +527,7 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
 *   The names of predicate methods (methods that return a boolean value) should end in a question mark. (i.e. `Array#empty?`).
 
 *   Prefer positive names for booleans. Positive names are much easier to reason about when they're combined with other booleans.
-    ```
+    ```ruby
     # bad
     disabled = true
     
