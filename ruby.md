@@ -526,6 +526,15 @@ Much of this was taken from [https://github.com/bbatsov/ruby-style-guide](https:
 
 *   The names of predicate methods (methods that return a boolean value) should end in a question mark. (i.e. `Array#empty?`).
 
+*   Prefer positive names for booleans. Positive names are much easier to reason about when they're combined with other booleans.
+    ```ruby
+    # bad
+    disabled = true
+    
+    # good
+    enabled = false
+    ```
+
 *   The names of potentially "dangerous" methods (i.e. methods that modify `self` or the arguments, `exit!`, etc.)
     should end with an exclamation mark. Bang methods should only exist if a non-bang method exists.
     ([More on this](http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist)).
