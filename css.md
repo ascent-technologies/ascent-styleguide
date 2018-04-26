@@ -37,7 +37,7 @@ The customer app's base styles are built on [the Inspinia admin theme](http://we
 
 ### Style, spacing, and such
 
-*   Use `snake_case` for ID and class names.
+*   Use `lisp-case` for ID and class names.
 
 *   Use soft-tabs with a two space indent.
 
@@ -47,12 +47,12 @@ The customer app's base styles are built on [the Inspinia admin theme](http://we
 
     ```sass
     // bad
-    .my_class{
+    .my-class{
       text-size:14px;
     }
 
     // good
-    .my_class {
+    .my-class {
       text-size: 14px;
     }
     ```
@@ -61,10 +61,10 @@ The customer app's base styles are built on [the Inspinia admin theme](http://we
 
     ```sass
     // bad
-    .my_class{
+    .my-class{
       text-size:14px;
     }
-    .my_class {
+    .my-class {
       text-size: 14px;
     }
     ```
@@ -168,7 +168,7 @@ give precedence to rules that affect positioning and appearance.  Follow these g
 Anything that doesn’t fall into any of the above categories gets added to the end.
 
 ```sass
-.my_class {
+.my-class {
   display: inline-block;
   width: 50%;
   margin: 0 auto;
@@ -197,7 +197,7 @@ Think of the order in terms of semantic relevance to the selector.
 The more closely related to the base selector, the closer to the top the content should appear.
 
 ```sass
-.main_navigation {
+.main-navigation {
   width: 75%;
   background-color: $red;
 
@@ -212,11 +212,11 @@ The more closely related to the base selector, the closer to the top the content
     vertical-align: middle;
   }
 
-  &.is_open {
+  &.is-open {
     display: block;
   }
 
-  .link_to_home {
+  .link-to-home {
     @extend %nav-link;
     @include main_navigation_sprite(home);
 
@@ -246,9 +246,9 @@ Layout elements are commonly styled using ID selectors. _This is about the only 
 Examples of layout elements are:
 *   `#header`
 *   `#footer`
-*   `#main_navigation`
-*   `#primary_content`
-*   `#secondary_content`
+*   `#main-navigation`
+*   `#primary-content`
+*   `#secondary-content`
 
 ### Modules
 
@@ -260,11 +260,11 @@ Modules are discrete components of a page. They are things like navigation bars,
     This creates highly semantic, self-documenting, self-contained modules, while keeping class name length reasonable.
 
     ```html
-    <div id="mobile_header">
-      <div class="mobile_header_top_bar"> ... </div>
-      <div class="mobile_header_browse_categories">
-        <div class="browse_categories_toggle_container"> ... </div>
-        <div class="browse_categories_content"> ... </div>
+    <div id="mobile-header">
+      <div class="mobile-header-top-bar"> ... </div>
+      <div class="mobile-header-browse-categories">
+        <div class="browse-categories-toggle-container"> ... </div>
+        <div class="browse-categories-content"> ... </div>
       </div>
     </div>
     ```
@@ -278,13 +278,13 @@ States, in most cases, should be prefaced by `is_` so as to reduce their likelih
 *   State styles can apply to both layouts and modules.
 
     ```html
-    <div id="footer" class="is_hidden"> ... </div>
+    <div id="footer" class="is-hidden"> ... </div>
 
     <div class="message error">
       There is an error!
     </div>
 
-    <div class="secondary_navigation is_open"> ... </div>
+    <div class="secondary-navigation is-open"> ... </div>
     ```
 
 *   State styles indicate a JavaScript dependency.
@@ -295,7 +295,7 @@ States, in most cases, should be prefaced by `is_` so as to reduce their likelih
 *   Define state styles as parent-referencing children of the module.
 
     ```sass
-    .secondary_navigation {
+    .secondary-navigation {
       &.is_open {
         display: block;
       }
@@ -336,13 +336,13 @@ from a `%placeholder selector` is extended to multiple selectors, those selector
   background-color: #ccc;
 }
 
-.error_message {
+.error-message {
   @extend %message-box;
 
   border-color: $red;
 }
 
-.notice_message {
+.notice-message {
   @extend %message-box;
 
   border-color: green;
@@ -351,17 +351,17 @@ from a `%placeholder selector` is extended to multiple selectors, those selector
 
 ```css
 // Compiled CSS
-.error_box, notice_box {
+.error-box, notice-box {
   padding: 10px 0;
   border: 1px solid;
   background-color: #ccc;
 }
 
-.error_message {  
+.error-message {  
   border-color: $red;
 }
 
-.notice_message {
+.notice-message {
   border-color: green;
 }
 ```
@@ -377,14 +377,14 @@ from a `%placeholder selector` is extended to multiple selectors, those selector
   &.titan::before { background-color: $membership-titan-color; }
 }
 
-.membership_home_container {
+.membership-home-container {
   &.top {
     @extend %member-background-colors;
   }
 }
 
-.membership_home_checklist_container {
-  .stylized_checklist_item_text_container {
+.membership-home-checklist-container {
+  .stylized-checklist-item-text-container {
     &.complete {
       @extend %member-background-colors;
     }
@@ -417,7 +417,7 @@ Keep the contents of mixins as compact and as flat as possible to allow for easy
   }
 }
 
-.booth_vacation_banner {
+.booth-vacation-banner {
   width: 100%;
 
   @include media(1160px) {
