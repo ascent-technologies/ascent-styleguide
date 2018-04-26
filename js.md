@@ -136,7 +136,7 @@ Prefer the user of function expressions over declarations.
 
 *   Unary special-character operators (e.g., `!`, `++`) must not have space following their operand.
 
-*   `if`/`else`/`for`/`while`/`try` always have braces, and should usually go on multiple lines.
+*   `if`/`else`/`for`/`while`/`try` always have braces, and should usually go on multiple lines. Subsequent control flow keywords should begin on their own line to align with the first one.
 
     ```javascript
     // bad
@@ -145,14 +145,21 @@ Prefer the user of function expressions over declarations.
     // ok
     if (condition) { doSomething(); }
 
+    // bad
+    if (condition) {
+      doSomething();
+    } else {
+      doSomethingElse();
+    }
+
     // good
     if (condition) {
       doSomething();
-
-    } else if (anotherCondition) {
+    }
+    else if (anotherCondition) {
       doSomethingElse();
-
-    } else {
+    }
+    else {
       otherwise();
     }
     ```
