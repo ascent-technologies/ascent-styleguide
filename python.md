@@ -66,7 +66,7 @@ ten_item_list = [x for x in range(10)]
 # not acceptable
 r = pd.read_csv('example.csv')
 ```
-* However, certain established shorthand variables are acceptable, particularly if they are used in the library's documentation as well, such as `df` for DataFrame or `r` for a Requests object.
+* However, certain established shorthand variables are acceptable, particularly if they are used in the library's documentation as well (such as `df` for DataFrame or `r` for a Requests object).
 * Functions should use lowercase snake case:
 
 ```python
@@ -79,8 +79,7 @@ def newFunction():
     pass
 ```
 * Classes should be named in Capital Case (`NewClass`)
-* Methods / Attributes
-    * Should typically follow standards for functions
+* Methods / Attributes should typically follow standards for functions, however:
     * If a method name would clash with an established method, add a trailing underscore (i.e., `class_` instead of `clss`)
     * If a method is designed to be non-public, start it with an underscore (`_private_method()`). 
         * This will prevent the method from being imported through `from MyClass import *`
@@ -108,11 +107,11 @@ if 'pathing'[:3] == 'path':
     * The code itself should tell the reader what it does. If the is too complex to do that, it should be refactored
 * Keep comments up-to-date with the code to which they refer. Comments that are misleading are worse than no comments!
 * Comments over multiple lines should be at the same indentation level of the code to which they refer
-* Inline comments should be rare
+* Inline comments should be rare and follow the guidelines above
 
 ## Exceptions
 
-* In general, use exceptions sparingly, as they may hide errors that are important. 
+* In general, use exceptions sparingly, as they may hide errors that are important
 * When creating new exceptions, always derive from `Exception`, not `BaseException`
 * Design exceptions based on what the code that will execute after the exception is raised will need, not based on where the exception occurred. In other words, design exceptions to answer "What went wrong?" versus "A problem occured"
 * When capturing exceptions, use specific exceptions instead of a bare `except:`. The bare `except:` clause will capture `SystemExit` and `KeyboardInterruption` exceptions as well, which can make it harder to kill a running program with `Ctrl-C` and can hide exceptions that we care about. 
@@ -305,6 +304,6 @@ def append_list(value):
 >>> append_list(4) #UnboundLocalError
 ```
 
-* In general, removing (or modifying) items of a list while iterating over it is not recommended. It is much better to use list comprehension (`[x for x in range(10) if x % 2 == 0]` versus iterating through the list and removing items) or create a new list and add items to that.
-* When naming modules, be careful that you do not clash with any name in the standard library. Python may import your module versus the standard library module and, in doing so, cause any number of problems.
+* **In general, removing (or modifying) items of a list while iterating over it is not recommended.** It is much better to use list comprehension (`[x for x in range(10) if x % 2 == 0]` versus iterating through the list and removing items) or create a new list and add items to that.
+* **When naming modules, be careful that you do not clash with any name in the standard library.** Python may import your module versus the standard library module and, in doing so, cause any number of problems.
 
